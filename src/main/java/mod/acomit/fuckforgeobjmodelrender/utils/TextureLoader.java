@@ -1,4 +1,4 @@
-package mod.arcomit.lucisrenderlib.core.obj;
+package mod.acomit.fuckforgeobjmodelrender.utils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.SimpleTexture;

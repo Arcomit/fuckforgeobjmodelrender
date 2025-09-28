@@ -25,7 +25,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package mod.acomit.fuckforgeobjmodelrender.obj;
+package mod.acomit.fuckforgeobjmodelrender.core.obj;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

@@ -25,7 +25,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package mod.acomit.fuckforgeobjmodelrender.obj;
+package mod.acomit.fuckforgeobjmodelrender.core.obj;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;

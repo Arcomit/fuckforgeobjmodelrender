@@ -29,7 +29,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package mod.acomit.fuckforgeobjmodelrender.mikktspace;
+package mod.acomit.fuckforgeobjmodelrender.core.mikktspace;
 
 import java.util.logging.Logger;
 

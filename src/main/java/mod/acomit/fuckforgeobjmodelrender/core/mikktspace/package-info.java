@@ -32,4 +32,4 @@
 /**
  * generate tangents for models using the mikktspace algorithm
  */
-package mod.acomit.fuckforgeobjmodelrender.mikktspace;
+package mod.acomit.fuckforgeobjmodelrender.core.mikktspace;

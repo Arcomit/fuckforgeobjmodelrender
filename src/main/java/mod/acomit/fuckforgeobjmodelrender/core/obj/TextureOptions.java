@@ -24,7 +24,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package mod.acomit.fuckforgeobjmodelrender.obj;
+package mod.acomit.fuckforgeobjmodelrender.core.obj;
 
 /**
  * Interface for the texture options that are part of a map definition

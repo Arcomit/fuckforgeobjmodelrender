@@ -25,7 +25,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package mod.acomit.fuckforgeobjmodelrender.obj;
+package mod.acomit.fuckforgeobjmodelrender.core.obj;
 
 /**
  * Interface describing a single group of an OBJ file. This may either

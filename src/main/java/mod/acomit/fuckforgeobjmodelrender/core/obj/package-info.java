@@ -8,5 +8,5 @@
  * {@link de.javagl.obj.ObjWriter#write(ReadableObj, java.io.OutputStream)}.
  * <br>
  */
-package mod.acomit.fuckforgeobjmodelrender.obj;
+package mod.acomit.fuckforgeobjmodelrender.core.obj;
 
