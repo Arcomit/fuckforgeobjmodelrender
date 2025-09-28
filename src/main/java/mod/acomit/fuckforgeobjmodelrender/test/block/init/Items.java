@@ -27,6 +27,14 @@ public class Items {
             )
     );
 
+    public static final RegistryObject<Item> TEST_BLOCK_ITEM_2 = ITEMS.register(
+            "test_block_item2",
+            () -> new BlockItem(
+                    Blocks.TESTBLOCK_2.get(),
+                    new Item.Properties()
+            )
+    );
+
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
     }

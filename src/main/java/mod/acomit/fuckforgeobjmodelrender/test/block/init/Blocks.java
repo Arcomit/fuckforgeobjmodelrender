@@ -28,6 +28,15 @@ public class Blocks {
             )
     );
 
+    public static final RegistryObject<Block> TESTBLOCK_2 = BLOCKS.register(
+            "test_block2",
+            () -> new TestBlock(Block.Properties.of()
+                    .strength   (3.0f)
+                    .lightLevel (state -> 15)
+                    .noOcclusion()
+            )
+    );
+
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
     }

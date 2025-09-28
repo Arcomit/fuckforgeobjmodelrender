@@ -27,6 +27,14 @@ public class BlockEntityTypes {
                     ).build(null)
     );
 
+    public static final RegistryObject<BlockEntityType<TestBlockEntity>> TEST_BLOCK_ENTITY_TYPE_2 = BLOCK_ENTITY_TYPES.register(
+            "test_block_entity_type2",
+            () -> BlockEntityType.Builder.of(
+                    TestBlockEntity::new,
+                    Blocks.TESTBLOCK_2.get()
+            ).build(null)
+    );
+
     public static void register(IEventBus bus) {
         BLOCK_ENTITY_TYPES.register(bus);
     }

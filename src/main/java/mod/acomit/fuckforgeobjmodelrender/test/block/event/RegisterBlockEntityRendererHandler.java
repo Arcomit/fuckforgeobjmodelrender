@@ -20,6 +20,8 @@ public class RegisterBlockEntityRendererHandler {
     @SubscribeEvent
     public static void onRegisterBlockEntityRenderer(FMLClientSetupEvent event) {
         BlockEntityRenderers.register(BlockEntityTypes.TEST_BLOCK_ENTITY_TYPE.get(), TestBlockEntityRenderer::new);
+        BlockEntityRenderers.register(BlockEntityTypes.TEST_BLOCK_ENTITY_TYPE_2.get(), TestBlockEntityRenderer::new);
+
     }
 
 }

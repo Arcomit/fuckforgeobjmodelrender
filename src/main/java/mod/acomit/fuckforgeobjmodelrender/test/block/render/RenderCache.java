@@ -13,7 +13,10 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
 import java.io.IOException;
@@ -39,10 +42,10 @@ public class RenderCache {
 
     private int diffuseTextureId = -1;
 
-    private final static ResourceLocation MODEL_LOC   = Fuckforgeobjmodelrender.prefix("model/blade.obj");
-    private final static ResourceLocation TEXTURE_LOC = Fuckforgeobjmodelrender.prefix("model/blade.png");
+    private final static ResourceLocation MODEL_LOC   = Fuckforgeobjmodelrender.prefix("model/test.obj");
+    private final static ResourceLocation TEXTURE_LOC = Fuckforgeobjmodelrender.prefix("model/test.png");
 
-    public void init(){
+    public void init(boolean isFlipY){
         try (InputStream stream = Minecraft.getInstance().getResourceManager()
                 .getResource(MODEL_LOC)
                 .orElseThrow(
@@ -59,7 +62,7 @@ public class RenderCache {
 
                 IntBuffer   vertexIndices  = ObjData.getFaceVertexIndices(groupObj, 3);// 顶点索引
                 FloatBuffer vertexPosition = ObjData.getVertices         (groupObj);// 顶点坐标
-                FloatBuffer vertexUv       = ObjData.getTexCoords        (groupObj, 2, true);// UV
+                FloatBuffer vertexUv       = ObjData.getTexCoords        (groupObj, 2, isFlipY);// UV
                 FloatBuffer vertexNormals  = ObjData.getNormals          (groupObj);// 法线
 
                 FloatBuffer vertexTangents = BufferUtils.createFloatBuffer(groupObj.getNumVertices() * 4);//切线
@@ -148,6 +151,11 @@ public class RenderCache {
                 GL30.glVertexAttribPointer(5, 3, GL30.GL_FLOAT, false, 0, 0);
                 GL30.glEnableVertexAttribArray(5);
 
+                tangentBufferObject = GL30.glGenBuffers();
+                GL30.glBindBuffer(GL30.GL_ARRAY_BUFFER, tangentBufferObject);
+                GL30.glBufferData(GL30.GL_ARRAY_BUFFER, vertexTangents, GL30.GL_STATIC_DRAW);
+                GL20.glVertexAttribPointer(9, 4, GL11.GL_FLOAT, false, 0, 0); // 使用location=3
+                GL20.glEnableVertexAttribArray(9);
                 // 颜色，light，overlay渲染时传，这里不传
 
                 EBO = GL30.glGenBuffers();
@@ -211,7 +219,23 @@ public class RenderCache {
             Window window = Minecraft.getInstance().getWindow();
             shader.SCREEN_SIZE.set((float)window.getWidth(), (float)window.getHeight());
         }
-        RenderSystem.setupShaderLights(shader);
+
+        // 法线在应用modelview矩阵之前就被应用到光照了，所以对Light Direction下手
+        Matrix4f inverseModelMatrix = new Matrix4f();
+        poseStack.last().pose().invert(inverseModelMatrix);
+        inverseModelMatrix.transpose();
+        if (shader.LIGHT0_DIRECTION != null) {
+            Vector3f transformedLightDir = new Vector3f(RenderSystem.shaderLightDirections[0]);
+            inverseModelMatrix.transformDirection(transformedLightDir);
+            transformedLightDir.normalize();
+            shader.LIGHT0_DIRECTION.set(transformedLightDir);
+        }
+        if (shader.LIGHT1_DIRECTION != null) {
+            Vector3f transformedLightDir = new Vector3f(RenderSystem.shaderLightDirections[1]);
+            inverseModelMatrix.transformDirection(transformedLightDir);
+            transformedLightDir.normalize();
+            shader.LIGHT1_DIRECTION.set(transformedLightDir);
+        }
         shader.apply();
         GL30.glBindVertexArray(VAO);
 
