@@ -113,7 +113,7 @@ public class RenderCache {
                         vertexTangents.put(tangent[0]);
                         vertexTangents.put(tangent[1]);
                         vertexTangents.put(tangent[2]);
-                        vertexTangents.put(-sign);
+                        vertexTangents.put(sign);
                     }
 
                     @Override
@@ -156,6 +156,9 @@ public class RenderCache {
                 GL30.glBufferData(GL30.GL_ARRAY_BUFFER, vertexTangents, GL30.GL_STATIC_DRAW);
                 GL20.glVertexAttribPointer(9, 4, GL11.GL_FLOAT, false, 0, 0); // 使用location=3
                 GL20.glEnableVertexAttribArray(9);
+
+                GL30.glVertexAttrib2f(8, 0.5f, 0.5f);  // MID
+
                 // 颜色，light，overlay渲染时传，这里不传
 
                 EBO = GL30.glGenBuffers();
