@@ -30,9 +30,11 @@ public class TestBlockEntityRenderer_2 implements BlockEntityRenderer<BlockEntit
     ) {
         float time = (Minecraft.getInstance().level.getGameTime() + partialTicks) / 20.0f;
         poseStack.pushPose();
+        poseStack.translate(0.5, 0.5, 0.5);
 //        poseStack.mulPose(com.mojang.math.Axis.YP.rotation(time));
 //        poseStack.mulPose(com.mojang.math.Axis.XP.rotation(time * 0.5f));
         poseStack.scale(0.01F, 0.01F, 0.01F);
+
 
         if (!isInit){
             init();

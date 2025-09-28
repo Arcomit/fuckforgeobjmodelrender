@@ -113,7 +113,7 @@ public class RenderCache {
                         vertexTangents.put(tangent[0]);
                         vertexTangents.put(tangent[1]);
                         vertexTangents.put(tangent[2]);
-                        vertexTangents.put(sign);
+                        vertexTangents.put(-sign);
                     }
 
                     @Override
