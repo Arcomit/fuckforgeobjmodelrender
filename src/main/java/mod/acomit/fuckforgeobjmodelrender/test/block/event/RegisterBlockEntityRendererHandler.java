@@ -3,7 +3,7 @@ package mod.acomit.fuckforgeobjmodelrender.test.block.event;
 import mod.acomit.fuckforgeobjmodelrender.Fuckforgeobjmodelrender;
 import mod.acomit.fuckforgeobjmodelrender.test.block.init.BlockEntityTypes;
 import mod.acomit.fuckforgeobjmodelrender.test.block.render.TestBlockEntityRenderer;
-import mod.acomit.fuckforgeobjmodelrender.test.block.render.TestBlockEntityRenderer2;
+import mod.acomit.fuckforgeobjmodelrender.test.block.render.TestBlockEntityRenderer_2;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,7 +21,7 @@ public class RegisterBlockEntityRendererHandler {
     @SubscribeEvent
     public static void onRegisterBlockEntityRenderer(FMLClientSetupEvent event) {
         BlockEntityRenderers.register(BlockEntityTypes.TEST_BLOCK_ENTITY_TYPE.get(), TestBlockEntityRenderer::new);
-        BlockEntityRenderers.register(BlockEntityTypes.TEST_BLOCK_ENTITY_TYPE_2.get(), TestBlockEntityRenderer2::new);
+        BlockEntityRenderers.register(BlockEntityTypes.TEST_BLOCK_ENTITY_TYPE_2.get(), TestBlockEntityRenderer_2::new);
 
     }
 

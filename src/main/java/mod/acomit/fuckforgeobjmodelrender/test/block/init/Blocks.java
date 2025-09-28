@@ -2,6 +2,7 @@ package mod.acomit.fuckforgeobjmodelrender.test.block.init;
 
 import mod.acomit.fuckforgeobjmodelrender.Fuckforgeobjmodelrender;
 import mod.acomit.fuckforgeobjmodelrender.test.block.TestBlock;
+import mod.acomit.fuckforgeobjmodelrender.test.block.TestBlock_2;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,8 +30,8 @@ public class Blocks {
     );
 
     public static final RegistryObject<Block> TESTBLOCK_2 = BLOCKS.register(
-            "test_block2",
-            () -> new TestBlock(Block.Properties.of()
+            "test_block_2",
+            () -> new TestBlock_2(Block.Properties.of()
                     .strength   (3.0f)
                     .lightLevel (state -> 15)
                     .noOcclusion()

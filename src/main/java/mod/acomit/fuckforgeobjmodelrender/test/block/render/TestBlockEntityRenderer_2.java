@@ -13,11 +13,11 @@ import org.jetbrains.annotations.NotNull;
  * @CreateTime: 2025-09-27 13:34
  * @Description: TODO
  */
-public class TestBlockEntityRenderer2 implements BlockEntityRenderer<BlockEntity> {
+public class TestBlockEntityRenderer_2 implements BlockEntityRenderer<BlockEntity> {
     private static RenderCache renderCache = new RenderCache();
     private static boolean isInit = false;
 
-    public TestBlockEntityRenderer2(BlockEntityRendererProvider.Context context) {}
+    public TestBlockEntityRenderer_2(BlockEntityRendererProvider.Context context) {}
 
     @Override
     public void render(

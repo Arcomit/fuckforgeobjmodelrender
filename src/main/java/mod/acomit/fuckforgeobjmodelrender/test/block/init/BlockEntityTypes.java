@@ -2,6 +2,7 @@ package mod.acomit.fuckforgeobjmodelrender.test.block.init;
 
 import mod.acomit.fuckforgeobjmodelrender.Fuckforgeobjmodelrender;
 import mod.acomit.fuckforgeobjmodelrender.test.block.TestBlockEntity;
+import mod.acomit.fuckforgeobjmodelrender.test.block.TestBlockEntity_2;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -27,10 +28,10 @@ public class BlockEntityTypes {
                     ).build(null)
     );
 
-    public static final RegistryObject<BlockEntityType<TestBlockEntity>> TEST_BLOCK_ENTITY_TYPE_2 = BLOCK_ENTITY_TYPES.register(
-            "test_block_entity_type2",
+    public static final RegistryObject<BlockEntityType<TestBlockEntity_2>> TEST_BLOCK_ENTITY_TYPE_2 = BLOCK_ENTITY_TYPES.register(
+            "test_block_entity_type_2",
             () -> BlockEntityType.Builder.of(
-                    TestBlockEntity::new,
+                    TestBlockEntity_2::new,
                     Blocks.TESTBLOCK_2.get()
             ).build(null)
     );

@@ -28,7 +28,7 @@ public class Items {
     );
 
     public static final RegistryObject<Item> TEST_BLOCK_ITEM_2 = ITEMS.register(
-            "test_block_item2",
+            "test_block_item_2",
             () -> new BlockItem(
                     Blocks.TESTBLOCK_2.get(),
                     new Item.Properties()
